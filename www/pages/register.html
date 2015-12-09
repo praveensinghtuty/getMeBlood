@@ -1,9 +1,9 @@
 <div class="registerMaindiv">
-	<form name="registerForm" id="registerform">
-		<input type="text" id="name" placeholder="Enter your name" required/>
-		<input type="text" id="bloodgroup" placeholder="Enter your blood group" required/>
-		<input type="text" id="phoneno" placeholder="Enter your phone number" required/>
-		<input type="text" id="location" placeholder="Enter your location" required/>
-		<button ng-disabled="registerForm.$invalid">Submit</button>
+	<form name="registerForm" id="registerform" ng-controller="databaseController">
+		<input type="text" id="name" placeholder="Enter your name" ng-model="name" required/>
+		<input type="text" id="bloodgroup" placeholder="Enter your blood group" ng-model="blood" required/>
+		<input type="text" id="phoneno" placeholder="Enter your phone number" ng-model="phone" required/>
+		<input type="text" id="location" placeholder="Enter your location" ng-model="location" required/>
+		<button ng-disabled="registerForm.$invalid" ng-click="register()">Submit</button>
 	</form>
 </div>
