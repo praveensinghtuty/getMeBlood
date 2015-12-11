@@ -24,9 +24,11 @@ app.service('productService', function() {
 // }]);
 
 app.controller("databaseController", function($scope){
+	$scope.bloodtype = ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'O-'];
 	var myFirebaseRef = new Firebase("https://brilliant-inferno-7097.firebaseio.com/");
+	var obj = $scope.name;
 	$scope.register = function(){
-		myFirebaseRef.push({
+		myFirebaseRef.child($scope.phone).set({
 			name:$scope.name,
 			blood:$scope.blood,
 			phone:$scope.phone,
@@ -44,9 +46,27 @@ app.controller("searchController", function($scope,$window,productService){
 	}
 });
 
-app.controller("searchresultController", function($scope,$window,productService){
-	// $scope.datas = getData;
-	$scope.result = productService.getSearch();
+app.controller("searchresultController", function($scope,$firebaseArray,$firebaseArray,productService){
+	
+	var searchResult = productService.getSearch();
+	// alert(searchResult[0].locations);
+	var ref = new Firebase("https://brilliant-inferno-7097.firebaseio.com/");
+	var getData = $firebaseArray(ref);
+	// ref.child(searchResult[0].locations).once('value', function(snap) {
+	// 	$scope.searchresults = $firebaseArray(snap.val());
+	// });
+	$scope.searchresults = [];
+	getData.$loaded()
+    	.then(function(){
+    	    angular.forEach(getData, function(getData) {
+    	        console.log(getData);
+    	        if(getData.location == searchResult[0].locations && getData.blood == searchResult[0].blood)
+    	        	$scope.searchresults.push(getData)
+    	    })
+    	});
+	// alert(JSON.stringify(getData));
+
+
 });
 
 app.config(function($routeProvider){
@@ -62,7 +82,8 @@ app.config(function($routeProvider){
 		controller: 'searchresultController'
 	})
 	.when('/register',{
-		templateUrl: "pages/register.html"
+		templateUrl: "pages/register.html",
+		controller: 'databaseController'
 	})
 	.otherwise({
 		redirectTo: '/home'

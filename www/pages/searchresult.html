@@ -1,3 +1,18 @@
-<div>
-{{datas}}
+<div class="searchresultMaindiv">
+	<table class="resultTable">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Location</td>
+				<td>Phone</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="list in searchresults">
+				<td>{{list.name}}</td>
+				<td>{{list.location}}</td>
+				<td>{{list.phone}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
