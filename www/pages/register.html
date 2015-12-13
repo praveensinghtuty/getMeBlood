@@ -1,11 +1,11 @@
 <div class="registerMaindiv">
 	<form name="registerForm" id="registerform">
 		<input type="text" id="name" placeholder="Enter your name" ng-model="name" required/>
-		<select id="bloodgroup" ng-model="blood" ng-repeat="type in bloodtype">
-			<option value="type">{{type}}</option>
+		<select id="bloodgroup" ng-model="blood">
+			<option value="{{type}}" ng-repeat="type in bloodtype">{{type}}</option>
 		</select>
 		<input type="text" id="phoneno" placeholder="Enter your phone number" ng-model="phone" required/>
 		<input type="text" id="location" placeholder="Enter your location" ng-model="location" required/>
-		<button ng-disabled="registerForm.$invalid" ng-click="register()">Submit</button>
+		<button ng-disabled="registerForm.$invalid" ng-click="register()">Submit</button><span class="back"><a ng-href="#/home"><<<</a></span>
 	</form>
 </div>
