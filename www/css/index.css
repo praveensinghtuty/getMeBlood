@@ -18,6 +18,60 @@ body{
     line-height: 500%;
     text-align: center;
 }
+.x1 {
+    overflow:hidden;
+}
+.x1 .x2 {
+    display:block;
+    float:left;
+    padding: 12.5%;
+    width:auto;
+    height:auto;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    -khtml-border-radius: 50%;
+    background:#eee;
+    text-align:center;
+    position: relative;
+}
+.x1 .x2 span {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 48%;
+    line-height: 1em;
+    height: 1em;
+    font-size: 6vw;
+    overflow: hidden;
+}
+
+.btn {
+  background: #d93434;
+  background-image: -webkit-linear-gradient(top, #d93434, #ed7979);
+  background-image: -moz-linear-gradient(top, #d93434, #ed7979);
+  background-image: -ms-linear-gradient(top, #d93434, #ed7979);
+  background-image: -o-linear-gradient(top, #d93434, #ed7979);
+  background-image: linear-gradient(to bottom, #d93434, #ed7979);
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  border-radius: 25%;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 6vw;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ed7979;
+  background-image: -webkit-linear-gradient(top, #ed7979, #d93434);
+  background-image: -moz-linear-gradient(top, #ed7979, #d93434);
+  background-image: -ms-linear-gradient(top, #ed7979, #d93434);
+  background-image: -o-linear-gradient(top, #ed7979, #d93434);
+  background-image: linear-gradient(to bottom, #ed7979, #d93434);
+  text-decoration: none;
+}
 
 .centerDiv a{
 	text-decoration: none;
