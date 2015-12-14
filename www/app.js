@@ -24,7 +24,7 @@ app.service('productService', function() {
 // }]);
 
 app.controller("databaseController", function($scope){
-	$scope.bloodtype = ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'O-'];
+	$scope.bloodtype = ['Choose you blood group', 'A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'O-'];
 	var myFirebaseRef = new Firebase("https://brilliant-inferno-7097.firebaseio.com/");
 	var obj = $scope.name;
 	$scope.register = function(){
@@ -34,11 +34,13 @@ app.controller("databaseController", function($scope){
 			phone:$scope.phone,
 			location:$scope.location
 		});
-		$scope.registerForm = {};
+		alert("Thank you")
+		$window.location.href = "#/home";
 	}
 });
 
 app.controller("searchController", function($scope,$window,productService){
+	$scope.bloodtype = ['Choose you blood group', 'A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'O-'];
 	$scope.search = function(){
 		var currObj = {"blood":$scope.bloodtype, "locations":$scope.locations};
         productService.addSearch(currObj);

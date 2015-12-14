@@ -1,7 +1,9 @@
 <div class="searchMaindiv">
 	<form name="searchForm" id="searchform">
-		<input type="text" id="bloodtype" placeholder="Enter the blood group" ng-model="bloodtype" required/>
+		<select id="bloodgroup" ng-model="bloodtype">
+			<option value="{{type}}" ng-repeat="type in bloodtype">{{type}}</option>
+		</select>
 		<input type="text" id="neededlocation" placeholder="Enter your location" ng-model="locations" required/>
-		<button ng-disabled="searchForm.$invalid" ng-click="search()">Search</button><button ng-href="#/home">Cancel</button>
+		<button ng-disabled="searchForm.$invalid" ng-click="search()">Search</button><span class="back"><a ng-href="#/home"><<<</a></span>
 	</form>
 </div>
