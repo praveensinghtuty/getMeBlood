@@ -23,8 +23,44 @@ app.service('productService', function() {
 // 	return $firebase(data).$asArray();
 // }]);
 
+app.controller("bloodController", function($scope,$firebaseArray){
+	var ref = new Firebase("https://brilliant-inferno-7097.firebaseio.com/");
+	var getData = $firebaseArray(ref);
+	$scope.bloodmembers = [
+			{ name:'A+', members:0 }, 
+			{ name:'B+', members:0 }, 
+			{ name:'O+', members:0 }, 
+			{ name:'A-', members:0 }, 
+			{ name:'B-', members:0 }, 
+			{ name:'O-', members:0 }, 
+			{ name:'AB+', members:0 }, 
+			{ name:'AB-', members:0 }
+		];
+
+	getData.$loaded()
+    	.then(function(){
+    	    angular.forEach(getData, function(getData) {
+    	    	for(var i=0;i<5;i++){
+    	    		if($scope.bloodmembers[i].name == getData.blood){
+    	    			var no = $scope.bloodmembers[i].members;
+    	    			$scope.bloodmembers[i].members = no+1;
+    	    		}
+    	    			// console.log(getData.blood)
+    	    	}
+    	        // var x = Number([$scope.bloodtype.indexOf()]);
+    	        // $scope.bloodmembers[$scope.bloodtype.indexOf(getData.blood)] = x+1; 
+
+
+    	    console.log($scope.bloodmembers);
+    	    })
+    	        
+    	    
+    	});
+	
+});
+
 app.controller("databaseController", function($scope){
-	$scope.bloodtype = ['Choose you blood group', 'A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'O-'];
+	$scope.bloodtype = ['Choose you blood group', 'A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'O-', 'AB-'];
 	var myFirebaseRef = new Firebase("https://brilliant-inferno-7097.firebaseio.com/");
 	var obj = $scope.name;
 	$scope.register = function(){

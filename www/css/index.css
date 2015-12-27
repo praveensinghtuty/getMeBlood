@@ -81,6 +81,57 @@ body{
 	color: #302E2E;
 }
 
+.leftBlooddiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*background-color: yellow;*/
+    width: 10%;
+    height: 100%;
+}
+
+.rightBlooddiv{
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*background-color: yellow;*/
+    width: 50px;
+    height: 500px;
+}
+
+.bloodCircle{
+    position: relative;
+    width: 50%;
+    height: 10%;
+    background-color: #3498db;
+    border-radius: 60%;
+    left:0;
+    margin: 10% 20%;
+}
+
+.bloodname{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+}
+
+.bloodDetailsDiv{
+    position: absolute;
+    width: 200px;
+    top: 10%;
+    left: 110%;
+    height: 50px;
+    background-color: blue;
+    padding: 0;
+    margin: 0;
+}
+
+.textspan{
+    position: absolute;
+    width: 100%;
+    left: 10%;
+}
 /****** Register page starts here ******/
 .registerMaindiv{
     height: 100%;

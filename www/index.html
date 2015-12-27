@@ -34,8 +34,18 @@
         <title>Hello World</title>
     </head>
     <body>
+        <div class="leftBlooddiv" ng-controller="bloodController">
+            <div ng-repeat="list in bloodmembers" class="bloodCircle">
+                <span class="bloodname">{{list.name}}</span>
+                <span class="bloodDetailsDiv" id="{{list}}">
+                    <span class="textspan">Blood Group : {{list.name}}<br>
+                    Number of Members : {{list.members}}</span>
+                </span>
+            </div>
+        </div>
+        <!-- <div class="rightBlooddiv"></div> -->
         <div ng-view></div>
-        <script type="text/javascript" src="cordova.js"></script>
+       <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             // app.initialize();
